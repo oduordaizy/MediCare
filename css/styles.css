@@ -1,0 +1,12 @@
+
+.headerContent{
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    align-items: center;
+    z-index: 100;
+
+}
+
