@@ -7,6 +7,53 @@
     width: 100%;
     align-items: center;
     z-index: 100;
+    background-color: grey;
+    top: 0;
 
 }
 
+
+.navbar a{
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    font-size: large;
+    font-weight: bold;
+
+}
+
+.logo_area{
+    display: flex;
+    align-items: center;
+   
+}
+
+section{
+    padding: 20px;
+    background-color: whitesmoke;
+}
+
+#about h1{
+    font-size: 4rem;
+}
+#about p{
+    font-size: 2rem;
+}
+
+#home{
+    margin-top: 100px;
+}
+
+.containerHome{
+    display: flex;
+    justify-content: space-between;
+}
+
+.homeElements p{
+    font-size: 4rem;
+}
+
+.footer-container{
+    display: flex;
+    justify-content: space-between;
+}
