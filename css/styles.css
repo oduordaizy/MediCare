@@ -1,4 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 
+body{
+    width: 100%;
+}
 .headerContent{
     display: flex;
     justify-content: space-between;
@@ -9,6 +18,7 @@
     z-index: 100;
     background-color: grey;
     top: 0;
+    flex-wrap: wrap;
 
 }
 
@@ -28,32 +38,127 @@
    
 }
 
+
+
 section{
     padding: 20px;
     background-color: whitesmoke;
+    
+}
+
+#about{
+    width: 100%;
 }
 
 #about h1{
-    font-size: 4rem;
+    font-size: 2rem;
+    
 }
 #about p{
     font-size: 2rem;
+    line-height: 1.5;
+   
 }
 
-#home{
-    margin-top: 100px;
-}
 
 .containerHome{
     display: flex;
     justify-content: space-between;
+    margin-top: 80px;
 }
 
+.homeElements{
+    width: 100%;
+    margin: 10px 0;
+}
+
+.homeElements img{
+    width: 100%;
+    height: auto;
+}
 .homeElements p{
     font-size: 4rem;
+   
 }
 
 .footer-container{
     display: flex;
     justify-content: space-between;
+}
+
+.icon{
+    display: none;
+    color: black;
+    cursor: pointer;
+    
+}
+
+.navbar.active{
+    display: flex;
+}
+
+/*Media queries*/
+@media (max-width: 768px){
+    .navbar{
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background-color: grey;
+        width: 100%;
+
+    }
+    .navbar.active{
+        display: flex;
+    }
+
+    .navbar a{
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .icon{
+        display: block;
+    }
+
+    .headerContent{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .homeElements p{
+        font-size: 2rem;
+    }
+
+    #about h1{
+        font-size: 2rem;
+
+    }
+
+    #about p{
+        font-size: 1 rem;
+    }
+}
+
+@media (max-width: 480px){
+    .logo_area h1{
+        font-size: 18px;
+    }
+
+    .navbar a{
+        font-size: medium;
+    }
+
+    .homeElements p{
+        font-size: 1.5rem;
+
+    }
+
+    #about h1{
+        font-size: 1.5rem;
+    }
+
+    #about p{
+        font-size: 1.5rem;
+    }
+    
 }
