@@ -9,23 +9,44 @@
 </head>
 <body>
     <form>
-        <label>Name</label>
-        <input type="text" placeholder="Enter your name">
-        <label>Email</label>
-        <input type="email" placeholder="Enter Email">
-        <label>Password</label>
-        <input type="password" placeholder="Enter your password">
-        <label>Confirm Password</label>
-        <input type="password" placeholder="Confirm your password">
-        <label>Age</label>
-        <input type="number" placeholder="Input your age">
+        <h2>Register</h2>
+        <div class="formItems">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+        </div>
         
-        <input type="radio" name="gender" id="male" value="male">
-        <label for="male">Male</label>
+        <div class="formItems">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter Email" required>
+        </div>
         
-        <input type="radio" name="gender" id="female" value="female">
-        <label for="female">Female</label>
+        <div class="formItems">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+        </div>
 
+        <div class="formItems">
+            <label>Confirm Password</label>
+            <input type="password" id="password" placeholder="Re-enter your password" required>
+        </div>
+
+        <div class="formItems">
+            <label for="age">Age</label>
+            <input type="number" id="age" placeholder="Input your age" required>
+        </div>
+        
+        
+        
+        <label>Gender</label>
+        <div class="radiogroup">
+            <input type="radio" name="gender" id="male" value="male">
+            <label for="male">Male</label>
+        
+            <input type="radio" name="gender" id="female" value="female">
+            <label for="female">Female</label>
+
+        </div>
+        
         <label for="country">Country</label>
         <select name="country">
             <option value="Kenya">Kenya</option>
@@ -38,10 +59,14 @@
 
         </select>
 
-        <label>Terms and Conditions</label>
-        <input type="checkbox">
+        <div class="terms">
+            <input type="checkbox" id="terms" required>
+            <label for id="terms">Terms and Conditions</label>
+           
+        </div>
+        
 
-        <button type="submit">Submit</button>
+        <button type="submit">Sign Up</button>
 
 
     </form>
