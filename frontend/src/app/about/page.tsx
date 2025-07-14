@@ -64,7 +64,7 @@ export default function AboutPage() {
       <section className="section-padding">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h1 className="text-5xl font-bold text-gray-900 mb-6">About TeleMed</h1>
+            <h1 className="text-5xl font-bold text-gray-900 mb-6">About MediCare</h1>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-600 mx-auto rounded-full mb-6"></div>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               We&apos;re revolutionizing healthcare delivery in East Africa by connecting patients with qualified doctors through our innovative telemedicine platform. Our mission is to make quality healthcare accessible, affordable, and convenient for everyone.

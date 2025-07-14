@@ -41,7 +41,7 @@ export default function LoginPage() {
             <Logo size="lg" />
           </div>
           <h2 className="text-3xl font-bold text-gray-900 mb-2">Welcome Back</h2>
-          <p className="text-gray-600">Sign in to your TeleMed account</p>
+          <p className="text-gray-600">Sign in to your MediCare account</p>
         </div>
         
         <div className="bg-white rounded-2xl shadow-xl p-8">

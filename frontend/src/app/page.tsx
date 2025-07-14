@@ -30,7 +30,7 @@ const testimonials = [
   {
     name: "Sarah Johnson",
     role: "Patient",
-    content: "TeleMed made it so easy to get medical care without leaving my home. The doctors were professional and caring.",
+    content: "MediCare made it so easy to get medical care without leaving my home. The doctors were professional and caring.",
     rating: 5
   },
   {
@@ -97,7 +97,7 @@ export default function HomePage() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Why Choose TeleMed?</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Why Choose MediCare?</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We&apos;re revolutionizing healthcare delivery with cutting-edge technology and compassionate care.
             </p>
@@ -126,7 +126,7 @@ export default function HomePage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">What Our Users Say</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Don&apos;t just take our word for it. Here&apos;s what patients and doctors are saying about TeleMed.
+              Don&apos;t just take our word for it. Here&apos;s what patients and doctors are saying about MediCare.
             </p>
           </div>
 

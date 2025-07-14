@@ -59,7 +59,7 @@ export default function RegistrationPage() {
             <Logo size="lg" />
           </div>
           <h2 className="text-3xl font-bold text-gray-900 mb-2">Create Your Account</h2>
-          <p className="text-gray-600">Join TeleMed for better healthcare</p>
+          <p className="text-gray-600">Join MediCare for better healthcare</p>
         </div>
         
         <div className="bg-white rounded-2xl shadow-xl p-8">

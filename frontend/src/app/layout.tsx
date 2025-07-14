@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "TeleMed - Modern Healthcare Platform",
+  title: "MediCare - Modern Healthcare Platform",
   description: "Access quality healthcare from anywhere with our telemedicine platform",
 };
 

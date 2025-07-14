@@ -76,7 +76,7 @@ export default function Footer() {
                 <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
                   <FaEnvelope className="text-white text-xs" />
                 </div>
-                <span className="text-gray-300 group-hover:text-white transition-colors duration-300">info@telemed.com</span>
+                <span className="text-gray-300 group-hover:text-white transition-colors duration-300">info@medicare.com</span>
               </div>
               <div className="flex items-center group">
                 <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
@@ -92,7 +92,7 @@ export default function Footer() {
         <div className="border-t border-gray-700/50 pt-4">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <p className="text-gray-300 text-sm">
-              &copy; {new Date().getFullYear()} TeleMed. All rights reserved.
+              &copy; {new Date().getFullYear()} MediCare. All rights reserved.
             </p>
             <div className="flex items-center space-x-2 mt-2 md:mt-0">
               <span className="text-gray-400 text-sm">Made with</span>

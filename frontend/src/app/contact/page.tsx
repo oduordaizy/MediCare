@@ -26,7 +26,7 @@ export default function ContactPage() {
     {
       icon: FaEnvelope,
       title: "Email",
-      details: "info@telemed.com",
+      details: "info@medicare.com",
       color: "from-blue-500 to-blue-600"
     },
     {

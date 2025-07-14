@@ -67,7 +67,7 @@ const Logo: React.FC<LogoProps> = ({ className = '', size = 'md' }) => {
       {/* Text Logo */}
       <div className="flex flex-col">
         <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-          TeleMed
+          MediCare
         </span>
         <span className="text-xs text-gray-500 -mt-1">Healthcare</span>
       </div>
