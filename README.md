@@ -3,10 +3,9 @@
 ## Introduction
 MediCare is a comprehensive telemedicine platform designed to connect patients with healthcare providers across East Africa. Built with modern technologies, it provides a seamless experience for virtual healthcare consultations, appointment scheduling, and health record management.
 
-## 📸 Screenshots
 
 ### Homepage
-![MediCare Homepage](homepage.png)
+![MediCare Homepage](frontend/public/homepage.png)
 
 ## 🏗️ Architecture
 
