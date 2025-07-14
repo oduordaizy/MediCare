@@ -51,7 +51,7 @@ export default function ContactPage() {
             <h1 className="text-5xl font-bold text-gray-900 mb-6">Contact Us</h1>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-600 mx-auto rounded-full mb-6"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Have a question or need help? We're here to assist you with all your healthcare needs.
+              Have a question or need help? We&apos;re here to assist you with all your healthcare needs.
             </p>
           </div>
 
@@ -101,7 +101,7 @@ export default function ContactPage() {
                     value={form.subject}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
-                    placeholder="What's this about?"
+                    placeholder="What&apos;s this about?"
                     required
                   />
                 </div>
@@ -130,7 +130,7 @@ export default function ContactPage() {
 
                 {submitted && (
                   <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg">
-                    Thank you for contacting us! We'll get back to you soon.
+                    Thank you for contacting us! We&apos;ll get back to you soon.
                   </div>
                 )}
               </form>
@@ -141,7 +141,7 @@ export default function ContactPage() {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Get in Touch</h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                  We're here to help with all your healthcare needs. Reach out to us through any of the channels below.
+                  We&apos;re here to help with all your healthcare needs. Reach out to us through any of the channels below.
                 </p>
               </div>
 

@@ -1,5 +1,6 @@
 "use client";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaHeart } from "react-icons/fa";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -21,18 +22,18 @@ export default function Footer() {
               <h3 className="text-xl font-bold text-white">Quick Links</h3>
             </div>
             <div className="space-y-2">
-              <a href="/" className="text-gray-300 hover:text-white transition-all duration-300 block">
+              <Link href="/" className="text-gray-300 hover:text-white transition-all duration-300 block">
                 Home
-              </a>
-              <a href="/about" className="text-gray-300 hover:text-white transition-all duration-300 block">
+              </Link>
+              <Link href="/about" className="text-gray-300 hover:text-white transition-all duration-300 block">
                 About
-              </a>
-              <a href="/doctors" className="text-gray-300 hover:text-white transition-all duration-300 block">
+              </Link>
+              <Link href="/doctors" className="text-gray-300 hover:text-white transition-all duration-300 block">
                 Doctors
-              </a>
-              <a href="/specialists" className="text-gray-300 hover:text-white transition-all duration-300 block">
+              </Link>
+              <Link href="/specialists" className="text-gray-300 hover:text-white transition-all duration-300 block">
                 Specialists
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -43,18 +44,18 @@ export default function Footer() {
               <h3 className="text-xl font-bold text-white">Services</h3>
             </div>
             <div className="space-y-2">
-              <a href="/hospitals" className="text-gray-300 hover:text-white transition-all duration-300 block">
+              <Link href="/hospitals" className="text-gray-300 hover:text-white transition-all duration-300 block">
                 Hospitals
-              </a>
-              <a href="/specialists" className="text-gray-300 hover:text-white transition-all duration-300 block">
+              </Link>
+              <Link href="/specialists" className="text-gray-300 hover:text-white transition-all duration-300 block">
                 Specialists
-              </a>
-              <a href="/contact" className="text-gray-300 hover:text-white transition-all duration-300 block">
+              </Link>
+              <Link href="/contact" className="text-gray-300 hover:text-white transition-all duration-300 block">
                 Contact
-              </a>
-              <a href="/registration" className="text-gray-300 hover:text-white transition-all duration-300 block">
+              </Link>
+              <Link href="/registration" className="text-gray-300 hover:text-white transition-all duration-300 block">
                 Register
-              </a>
+              </Link>
             </div>
           </div>
 

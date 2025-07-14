@@ -1,5 +1,6 @@
 "use client";
 import { FaStar, FaPhone, FaEnvelope, FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
+import Image from "next/image";
 
 const doctors = [
   {
@@ -46,7 +47,7 @@ const doctors = [
     patients: 1100,
     location: "Mombasa, Kenya",
     image: "https://randomuser.me/api/portraits/women/68.jpg",
-    description: "Providing expert care in women's health, pregnancy, and reproductive health services.",
+    description: "Providing expert care in women&apos;s health, pregnancy, and reproductive health services.",
     availability: "Mon-Sat, 9AM-5PM",
     languages: ["English", "Swahili", "Arabic"]
   }
@@ -69,9 +70,11 @@ export default function DoctorsPage() {
             {doctors.map((doctor, index) => (
               <div key={index} className="card overflow-hidden group">
                 <div className="relative">
-                  <img
+                  <Image
                     src={doctor.image}
                     alt={doctor.name}
+                    width={256}
+                    height={256}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center">
@@ -134,7 +137,7 @@ export default function DoctorsPage() {
           <div className="mt-16 bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-3xl font-bold mb-4">Need a Specialist?</h2>
             <p className="text-xl mb-6 opacity-90">
-              Can't find the right doctor? Contact us and we'll help you find the perfect match
+              Can&apos;t find the right doctor? Contact us and we&apos;ll help you find the perfect match
             </p>
             <button className="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-300">
               Find Your Doctor

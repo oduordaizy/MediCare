@@ -1,5 +1,6 @@
 "use client";
-import { FaHospital, FaMapMarkerAlt, FaPhone, FaGlobe } from "react-icons/fa";
+import { FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import Image from "next/image";
 
 const hospitals = [
   {
@@ -49,9 +50,11 @@ export default function HospitalsPage() {
             {hospitals.map((hospital, index) => (
               <div key={index} className="card overflow-hidden group">
                 <div className="relative">
-                  <img
+                  <Image
                     src={hospital.image}
                     alt={hospital.name}
+                    width={400}
+                    height={192}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
