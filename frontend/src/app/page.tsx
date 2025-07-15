@@ -1,28 +1,32 @@
 "use client";
 import Link from "next/link";
-import { FaArrowRight, FaCheckCircle, FaUserMd, FaLaptopMedical, FaClock, FaShieldAlt } from "react-icons/fa";
+import { FaArrowRight, FaUserMd, FaLaptopMedical, FaClock, FaShieldAlt, FaStar } from "react-icons/fa";
 import Image from "next/image";
 
 const features = [
   {
     icon: FaUserMd,
     title: "Expert Doctors",
-    description: "Connect with qualified healthcare professionals from anywhere."
+    description: "Connect with qualified healthcare professionals from anywhere.",
+    color: "from-blue-500 to-blue-600"
   },
   {
     icon: FaLaptopMedical,
     title: "Online Consultations",
-    description: "Get medical advice and prescriptions through secure video calls."
+    description: "Get medical advice and prescriptions through secure video calls.",
+    color: "from-green-500 to-green-600"
   },
   {
     icon: FaClock,
     title: "24/7 Availability",
-    description: "Access healthcare services anytime, day or night."
+    description: "Access healthcare services anytime, day or night.",
+    color: "from-purple-500 to-purple-600"
   },
   {
     icon: FaShieldAlt,
     title: "Secure & Private",
-    description: "Your health information is protected with state-of-the-art security."
+    description: "Your health information is protected with state-of-the-art security.",
+    color: "from-orange-500 to-orange-600"
   }
 ];
 
@@ -51,42 +55,59 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-green-50 py-20">
-        <div className="container-custom">
+      <section className="relative bg-gradient-to-br from-blue-50 via-white to-green-50 pt-8 pb-20 overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+          <div className="absolute top-40 right-10 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+        </div>
+        
+        <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Healthcare at Your
-                <span className="text-gradient"> Fingertips</span>
-              </h1>
-              <p className="text-xl text-gray-600 leading-relaxed">
-                Access quality healthcare from anywhere with our innovative telemedicine platform. Connect with expert doctors, get prescriptions, and receive care without leaving your home.
-              </p>
+              <div className="space-y-4">
+                <h1 className="text-3xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
+                  <div className="mb-2">Bringing</div>
+                  <div className="text-gradient bg-gradient-to-r from-blue-900 to-blue-800 bg-clip-text text-transparent mb-2">Healthcare</div>
+                  <div>Closer to Everyone</div>
+                </h1>
+                <p className="text-xl text-gray-600 leading-relaxed max-w-2xl">
+                  Access quality healthcare from anywhere. Connect with expert doctors and get prescriptions without leaving your home.
+                </p>
+              </div>
+              
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/registration">
-                  <button className="btn-primary">
-                    Get Started Today
-                    <FaArrowRight className="ml-2" />
+                  <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-900 to-blue-800 text-white font-bold rounded-xl hover:from-blue-800 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                    <span className="flex items-center text-white">
+                      Get Started Today
+                      <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-blue-800 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </button>
                 </Link>
                 <Link href="/doctors">
-                  <button className="btn-secondary">
+                  <button className="px-8 py-4 border-2 border-blue-600 text-blue-600 font-bold rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-105">
                     Find a Doctor
                   </button>
                 </Link>
               </div>
+              
+
             </div>
+            
             <div className="relative">
-              <Image
-                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=400&fit=crop"
-                alt="Telemedicine Consultation"
-                width={600}
-                height={400}
-                className="rounded-2xl shadow-2xl"
-              />
-              <div className="absolute -bottom-6 -left-6 bg-gradient-to-r from-blue-600 to-green-600 text-white p-4 rounded-xl">
-                <div className="text-2xl font-bold">10,000+</div>
-                <div className="text-sm opacity-90">Happy Patients</div>
+              <div className="relative z-10">
+                <Image
+                  src="/main-img.jpg"
+                  alt="Telemedicine Consultation"
+                  width={600}
+                  height={400}
+                  className="rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
+                />
+
+
               </div>
             </div>
           </div>
@@ -94,10 +115,13 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-white relative">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Why Choose MediCare?</h2>
+            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-green-100 rounded-full text-blue-800 font-semibold text-sm mb-4">
+              Why Choose Us
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Why Choose MediCare?</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We&apos;re revolutionizing healthcare delivery with cutting-edge technology and compassionate care.
             </p>
@@ -107,12 +131,15 @@ export default function HomePage() {
             {features.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
-                <div key={index} className="card p-6 text-center group hover:shadow-2xl transition-all duration-300">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent className="text-white text-2xl" />
+                <div key={index} className="group relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-green-600 rounded-2xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                  <div className="relative card p-8 text-center group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div className={`w-20 h-20 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                      <IconComponent className="text-white text-3xl" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{feature.description}</p>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{feature.description}</p>
                 </div>
               );
             })}
@@ -121,10 +148,13 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="section-padding bg-gradient-to-br from-blue-50 via-white to-green-50">
+      <section className="section-padding bg-gradient-to-br from-blue-50 via-white to-green-50 relative">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">What Our Users Say</h2>
+            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-100 to-blue-100 rounded-full text-green-800 font-semibold text-sm mb-4">
+              Testimonials
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">What Our Users Say</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Don&apos;t just take our word for it. Here&apos;s what patients and doctors are saying about MediCare.
             </p>
@@ -132,24 +162,23 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="card p-8 group hover:shadow-2xl transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <FaCheckCircle key={i} className="text-yellow-400 mr-1" />
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-6 leading-relaxed">&quot;{testimonial.content}&quot;</p>
-                <div className="flex items-center">
-                  <Image
-                    src={`https://randomuser.me/api/portraits/${testimonial.name.includes('Sarah') || testimonial.name.includes('Amina') ? 'women' : 'men'}/${index + 1}.jpg`}
-                    alt={testimonial.name}
-                    width={48}
-                    height={48}
-                    className="w-12 h-12 rounded-full mr-4"
-                  />
-                  <div>
-                    <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                    <p className="text-gray-600 text-sm">{testimonial.role}</p>
+              <div key={index} className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-green-600 rounded-2xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                <div className="relative card p-8 group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                  <div className="flex items-center mb-6">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <FaStar key={i} className="text-yellow-400 mr-1" />
+                    ))}
+                  </div>
+                  <p className="text-gray-700 mb-6 leading-relaxed text-lg italic">&quot;{testimonial.content}&quot;</p>
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 rounded-full mr-4 bg-gradient-to-r from-blue-500 to-green-500 flex items-center justify-center text-white font-bold text-sm">
+                      {testimonial.name.split(' ').map(n => n[0]).join('')}
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+                      <p className="text-gray-600 text-sm">{testimonial.role}</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -159,20 +188,29 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-gradient-to-r from-blue-600 to-green-600">
-        <div className="container-custom text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Ready to Get Started?</h2>
+      <section className="section-padding bg-gradient-to-r from-blue-600 to-green-600 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-600 to-green-600 opacity-90"></div>
+          <div className="absolute top-10 left-10 w-72 h-72 bg-white rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
+          <div className="absolute top-20 right-10 w-72 h-72 bg-white rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
+        </div>
+        
+        <div className="container-custom text-center relative z-10">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">Ready to Get Started?</h2>
           <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
             Join thousands of patients who are already enjoying the convenience of telemedicine. Your health journey starts here.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/registration">
-              <button className="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-300">
-                Create Account
+              <button className="group px-8 py-4 bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                <span className="flex items-center">
+                  Create Account
+                  <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
               </button>
             </Link>
             <Link href="/contact">
-              <button className="border-2 border-white text-white font-semibold py-3 px-8 rounded-lg hover:bg-white hover:text-blue-600 transition-colors duration-300">
+              <button className="px-8 py-4 border-2 border-white text-white font-bold rounded-xl hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105">
                 Contact Us
               </button>
             </Link>

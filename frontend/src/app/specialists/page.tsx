@@ -10,7 +10,7 @@ const specialists = [
     rating: 4.9,
     patients: 1500,
     location: "Nairobi, Kenya",
-    image: "https://randomuser.me/api/portraits/women/32.jpg",
+    image: null, // No local image provided
     description: "Expert in treating heart conditions and providing cardiac care with the latest medical technologies.",
     availability: "Mon-Fri, 9AM-5PM",
     languages: ["English", "Swahili"],
@@ -24,7 +24,7 @@ const specialists = [
     rating: 4.8,
     patients: 1200,
     location: "Mombasa, Kenya",
-    image: "https://randomuser.me/api/portraits/men/44.jpg",
+    image: null, // No local image provided
     description: "Specialized in neurological disorders, stroke treatment, and brain health management.",
     availability: "Mon-Sat, 8AM-6PM",
     languages: ["English", "Swahili", "Mandarin"],
@@ -38,7 +38,7 @@ const specialists = [
     rating: 4.7,
     patients: 900,
     location: "Nairobi, Kenya",
-    image: "https://randomuser.me/api/portraits/women/68.jpg",
+    image: "/doctors/amina-yusuf.png",
     description: "Expert in skin care, treating a wide range of skin conditions and cosmetic procedures.",
     availability: "Mon-Fri, 10AM-4PM",
     languages: ["English", "Swahili", "Arabic"],
@@ -52,7 +52,7 @@ const specialists = [
     rating: 4.9,
     patients: 2000,
     location: "Kampala, Uganda",
-    image: "https://randomuser.me/api/portraits/men/65.jpg",
+    image: "/doctors/samuel-kimani.png",
     description: "Specialized in joint replacement, sports injuries, and orthopedic surgery.",
     availability: "Mon-Fri, 8AM-5PM",
     languages: ["English", "Swahili", "Luganda"],
@@ -78,13 +78,24 @@ export default function SpecialistsPage() {
             {specialists.map((specialist, index) => (
               <div key={index} className="card overflow-hidden group">
                 <div className="relative">
-                  <Image
-                    src={specialist.image}
-                    alt={specialist.name}
-                    width={256}
-                    height={256}
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                  {specialist.image ? (
+                    <Image
+                      src={specialist.image}
+                      alt={specialist.name}
+                      width={256}
+                      height={256}
+                      className="w-full h-64 object-cover rounded-t-lg"
+                    />
+                  ) : (
+                    <div className="w-full h-64 bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 rounded-t-lg">
+                      <div className="text-white text-center">
+                        <div className="text-6xl font-bold mb-2">
+                          {specialist.name.split(' ').map(n => n[0]).join('')}
+                        </div>
+                        <div className="text-lg opacity-90">{specialist.specialty}</div>
+                      </div>
+                    </div>
+                  )}
                   <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center">
                     <FaStar className="text-yellow-500 mr-1" />
                     <span className="text-sm font-semibold text-gray-700">{specialist.rating}</span>

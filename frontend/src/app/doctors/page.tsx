@@ -10,7 +10,7 @@ const doctors = [
     rating: 4.9,
     patients: 1200,
     location: "Nairobi, Kenya",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    image: "/doctors/john-doe.png",
     description: "Expert in treating heart conditions and providing cardiac care with the latest medical technologies.",
     availability: "Mon-Fri, 9AM-5PM",
     languages: ["English", "Swahili"]
@@ -22,7 +22,7 @@ const doctors = [
     rating: 4.8,
     patients: 950,
     location: "Mombasa, Kenya",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    image: "/doctors/jane-smith.png",
     description: "Specialized in child health, growth, and development with a caring and gentle approach.",
     availability: "Mon-Sat, 8AM-6PM",
     languages: ["English", "Swahili", "French"]
@@ -34,7 +34,7 @@ const doctors = [
     rating: 4.7,
     patients: 800,
     location: "Nairobi, Kenya",
-    image: "https://randomuser.me/api/portraits/men/65.jpg",
+    image: "/doctors/samuel-kimani.png",
     description: "Specialist in skin care, treating a wide range of skin conditions and cosmetic procedures.",
     availability: "Mon-Fri, 10AM-4PM",
     languages: ["English", "Swahili"]
@@ -46,7 +46,7 @@ const doctors = [
     rating: 4.9,
     patients: 1100,
     location: "Mombasa, Kenya",
-    image: "https://randomuser.me/api/portraits/women/68.jpg",
+    image: "/doctors/amina-yusuf.png",
     description: "Providing expert care in women&apos;s health, pregnancy, and reproductive health services.",
     availability: "Mon-Sat, 9AM-5PM",
     languages: ["English", "Swahili", "Arabic"]

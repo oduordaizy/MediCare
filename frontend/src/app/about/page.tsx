@@ -1,6 +1,5 @@
 "use client";
 import { FaHeartbeat, FaUsers, FaAward, FaShieldAlt, FaGlobe, FaClock, FaUserMd } from "react-icons/fa";
-import Image from "next/image";
 
 const stats = [
   { number: "10,000+", label: "Patients Served", icon: FaUsers },
@@ -111,13 +110,12 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="relative">
-              <Image
-                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=400&fit=crop"
-                alt="Healthcare Team"
-                width={600}
-                height={400}
-                className="rounded-2xl shadow-2xl"
-              />
+              <div className="w-full h-64 bg-gradient-to-br from-blue-500 to-green-500 rounded-2xl shadow-2xl flex items-center justify-center">
+                <div className="text-white text-center">
+                  <div className="text-4xl font-bold mb-2">Healthcare Team</div>
+                  <div className="text-lg opacity-90">Dedicated professionals</div>
+                </div>
+              </div>
               <div className="absolute -bottom-6 -left-6 bg-gradient-to-r from-blue-600 to-green-600 text-white p-4 rounded-xl">
                 <div className="text-2xl font-bold">5+ Years</div>
                 <div className="text-sm opacity-90">of Excellence</div>
@@ -168,13 +166,9 @@ export default function AboutPage() {
             {team.map((member, index) => (
               <div key={index} className="card text-center group hover:shadow-2xl transition-all duration-300">
                 <div className="relative mb-6">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    width={128}
-                    height={128}
-                    className="w-32 h-32 rounded-full mx-auto object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                  <div className="w-32 h-32 rounded-full mx-auto bg-gradient-to-r from-blue-500 to-green-500 flex items-center justify-center text-white font-bold text-2xl group-hover:scale-105 transition-transform duration-300">
+                    {member.name.split(' ').map(n => n[0]).join('')}
+                  </div>
                   <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-600 to-green-600 text-white px-4 py-1 rounded-full text-sm font-medium">
                     {member.role}
                   </div>

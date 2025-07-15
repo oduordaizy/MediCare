@@ -92,7 +92,7 @@ export default function Footer() {
         <div className="border-t border-gray-700/50 pt-4">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <p className="text-gray-300 text-sm">
-              &copy; {new Date().getFullYear()} MediCare. All rights reserved.
+              &copy; 2024 MediCare. All rights reserved.
             </p>
             <div className="flex items-center space-x-2 mt-2 md:mt-0">
               <span className="text-gray-400 text-sm">Made with</span>

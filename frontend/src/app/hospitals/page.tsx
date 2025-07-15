@@ -8,28 +8,28 @@ const hospitals = [
     location: "Nairobi, Kenya",
     specialties: ["Cardiology", "Pediatrics", "Emergency Care"],
     rating: 4.8,
-    image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=400&h=300&fit=crop"
+    image: "/hospitals/nairobi-general.png"
   },
   {
     name: "Mombasa Medical Centre",
     location: "Mombasa, Kenya",
     specialties: ["Surgery", "Dermatology", "Gynecology"],
     rating: 4.6,
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop"
+    image: "/hospitals/mombasa-medical.png"
   },
   {
     name: "Kampala Health Institute",
     location: "Kampala, Uganda",
     specialties: ["Oncology", "Neurology", "Orthopedics"],
     rating: 4.7,
-    image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=400&h=300&fit=crop"
+    image: "/hospitals/kampala-institute.jpg"
   },
   {
     name: "Dar es Salaam City Hospital",
     location: "Dar es Salaam, Tanzania",
     specialties: ["Internal Medicine", "ENT", "Ophthalmology"],
     rating: 4.5,
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop"
+    image: "/hospitals/dar-es-salaamHospital.jpg"
   }
 ];
 
