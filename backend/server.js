@@ -1,77 +1,26 @@
 const express = require('express');
+const dotenv = require('dotenv');
+dotenv.config();
 const app = express();
-const mysql = require('mysql2')
-const dotenv = require('dotenv')
-dotenv.config()
 
-//Connecting to the mysql database
-const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
-})
+// Import Sequelize instance
+const sequelize = require('./config/db');
 
-//testing the connection
-db.connect((err)=>{
-    if(err){
-        console.err(`Error connecting to the database`, err.message);
-        return;
-    }
-    console.log("Connected to the mysql database")
-})
+// Import routes
+const apiRoutes = require('./src/routes/api');
 
-//patients
-app.get('/patients', (req,res)=>{
-    const getPtients = 'SELECT * FROM patients';
+// Middleware (add body-parser, cors, etc. here if needed)
+app.use(express.json());
 
-    db.query(getPtients, (err, results)=>{
-        if(err){
-            res.status(500).json({"error": err.message});
-        }
-        res.status(200).send(results)
-    })
-})
+// Use API routes
+app.use('/api', apiRoutes);
 
-//doctors
-app.get('/doctors', (req,res)=>{
-    const getDoctors = 'SELECT * FROM doctors';
-
-    db.query(getDoctors, (err, results)=>{
-        if(err){
-            res.status(500).json({"error": err.message});
-        }
-        res.status(200).send(results)
-    })
-})
-
-//appointments
-app.get('/appointments', (req,res)=>{
-    const getAppointments = 'SELECT * FROM appointments';
-
-    db.query(getAppointments, (err, results)=>{
-        if(err){
-            res.status(500).json({"error": err.message});
-        }
-        res.status(200).send(results)
-    })
-})
-
-//Admin
-app.get('/admin', (req,res)=>{
-    const getAdmin = 'SELECT * FROM admin';
-
-    db.query(getAdmin, (err, results)=>{
-        if(err){
-            res.status(500).json({"error": err.message});
-        }
-        res.status(200).send(results)
-    })
-})
-
-
-//listening to the server
+// Start server after syncing Sequelize models
 const PORT = 5500;
-app.listen(PORT, ()=>{
-    console.log(`Server is running on PORT:${PORT}`)
-})
+sequelize.sync().then(() => {
+    app.listen(PORT, () => {
+        console.log(`Server is running on PORT:${PORT}`);
+    });
+}).catch((err) => {
+    console.error('Failed to sync database:', err);
+});
