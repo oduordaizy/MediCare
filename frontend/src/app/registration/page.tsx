@@ -3,40 +3,39 @@ import React, { useState } from "react";
 import Logo from "../../components/Logo";
 
 interface Errors {
-  name?: string;
+  firstName?: string;
+  lastName?: string;
   email?: string;
   password?: string;
   confirmPassword?: string;
-  age?: string;
+  role?: string;
   gender?: string;
-  country?: string;
   terms?: string;
 }
 
 export default function RegistrationPage() {
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [age, setAge] = useState("");
+  const [role, setRole] = useState("");
   const [gender, setGender] = useState("");
-  const [country, setCountry] = useState("");
   const [terms, setTerms] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
 
   const validate = (): Errors => {
     const newErrors: Errors = {};
-    if (!name) newErrors.name = "Name is required.";
+    if (!firstName) newErrors.firstName = "First name is required.";
+    if (!lastName) newErrors.lastName = "Last name is required.";
     if (!email) newErrors.email = "Email is required.";
     else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) newErrors.email = "Invalid email address.";
     if (!password) newErrors.password = "Password is required.";
     else if (password.length < 6) newErrors.password = "Password must be at least 6 characters.";
     if (!confirmPassword) newErrors.confirmPassword = "Please confirm your password.";
     else if (password !== confirmPassword) newErrors.confirmPassword = "Passwords do not match.";
-    if (!age) newErrors.age = "Age is required.";
-    else if (isNaN(Number(age)) || Number(age) < 1) newErrors.age = "Enter a valid age.";
+    if (!role) newErrors.role = "Role is required.";
     if (!gender) newErrors.gender = "Gender is required.";
-    if (!country) newErrors.country = "Country is required.";
     if (!terms) newErrors.terms = "You must accept the terms.";
     return newErrors;
   };
@@ -66,23 +65,43 @@ export default function RegistrationPage() {
           <form className="space-y-6" onSubmit={handleSubmit} noValidate>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Full Name
+                <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 mb-2">
+                  First Name
                 </label>
                 <input
                   type="text"
-                  id="name"
-                  placeholder="Enter your full name"
-                  value={name}
-                  onChange={e => setName(e.target.value)}
+                  id="firstName"
+                  placeholder="Enter your first name"
+                  value={firstName}
+                  onChange={e => setFirstName(e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
                   required
                 />
-                {errors.name && (
-                  <p className="mt-2 text-sm text-red-600">{errors.name}</p>
+                {errors.firstName && (
+                  <p className="mt-2 text-sm text-red-600">{errors.firstName}</p>
                 )}
               </div>
 
+              <div>
+                <label htmlFor="lastName" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Last Name
+                </label>
+                <input
+                  type="text"
+                  id="lastName"
+                  placeholder="Enter your last name"
+                  value={lastName}
+                  onChange={e => setLastName(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
+                  required
+                />
+                {errors.lastName && (
+                  <p className="mt-2 text-sm text-red-600">{errors.lastName}</p>
+                )}
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
                   Email Address
@@ -98,6 +117,26 @@ export default function RegistrationPage() {
                 />
                 {errors.email && (
                   <p className="mt-2 text-sm text-red-600">{errors.email}</p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="role" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Role
+                </label>
+                <select
+                  id="role"
+                  value={role}
+                  onChange={e => setRole(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
+                  required
+                >
+                  <option value="">Select your role</option>
+                  <option value="patient">Patient</option>
+                  <option value="doctor">Doctor</option>
+                </select>
+                {errors.role && (
+                  <p className="mt-2 text-sm text-red-600">{errors.role}</p>
                 )}
               </div>
             </div>
@@ -142,24 +181,6 @@ export default function RegistrationPage() {
 
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="age" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Age
-                </label>
-                <input
-                  type="number"
-                  id="age"
-                  placeholder="Enter your age"
-                  value={age}
-                  onChange={e => setAge(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
-                  required
-                />
-                {errors.age && (
-                  <p className="mt-2 text-sm text-red-600">{errors.age}</p>
-                )}
-              </div>
-
-              <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Gender
                 </label>
@@ -191,31 +212,6 @@ export default function RegistrationPage() {
                   <p className="mt-2 text-sm text-red-600">{errors.gender}</p>
                 )}
               </div>
-            </div>
-
-            <div>
-              <label htmlFor="country" className="block text-sm font-semibold text-gray-700 mb-2">
-                Country
-              </label>
-              <select
-                id="country"
-                value={country}
-                onChange={e => setCountry(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
-                required
-              >
-                <option value="">Select a country</option>
-                <option value="Kenya">Kenya</option>
-                <option value="Tanzania">Tanzania</option>
-                <option value="Uganda">Uganda</option>
-                <option value="Rwanda">Rwanda</option>
-                <option value="South Africa">South Africa</option>
-                <option value="Sudan">Sudan</option>
-                <option value="Nigeria">Nigeria</option>
-              </select>
-              {errors.country && (
-                <p className="mt-2 text-sm text-red-600">{errors.country}</p>
-              )}
             </div>
 
             <div className="flex items-start">
