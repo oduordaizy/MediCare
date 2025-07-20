@@ -1,10 +1,10 @@
-const Doctor = require('../models/doctor');
+const User = require('../models/User');
 
 exports.getDoctors = async (req, res) => {
     try {
-        const doctors = await Doctor.findAll();
+        const doctors = await User.findAll({ where: { role: 'doctor' } });
         res.status(200).json(doctors);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
     }
 }; 

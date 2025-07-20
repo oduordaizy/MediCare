@@ -6,17 +6,26 @@ const app = express();
 // Import Sequelize instance
 const sequelize = require('./config/db');
 
+// Import middleware
+const auth = require('./src/middleware/authMiddleware');
+
 // Import routes
 const apiRoutes = require('./src/routes/api');
+const authRoutes = require('./src/routes/authRoutes');
 
-// Middleware (add body-parser, cors, etc. here if needed)
+// Middleware
 app.use(express.json());
 
-// Use API routes
-app.use('/api', apiRoutes);
+// Public routes (no authentication required)
+app.use('/api/auth', authRoutes);
+
+// Protected routes (authentication required)
+app.use('/api', auth(), apiRoutes);
+
+// Define PORT
+const PORT = process.env.PORT || 5500;
 
 // Start server after syncing Sequelize models
-const PORT = 5500;
 sequelize.sync().then(() => {
     app.listen(PORT, () => {
         console.log(`Server is running on PORT:${PORT}`);
