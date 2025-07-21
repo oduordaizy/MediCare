@@ -1,10 +1,14 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const cors = require('cors')
 dotenv.config();
 const app = express();
 
+app.use(cors())
+
 // Import Sequelize instance
 const sequelize = require('./config/db');
+const jwtSecret = process.env.JWT_SECRET;
 
 // Import middleware
 const auth = require('./src/middleware/authMiddleware');
@@ -20,15 +24,19 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 
 // Protected routes (authentication required)
-app.use('/api', auth(), apiRoutes);
+app.use('/api/users', auth(), apiRoutes);
+
+app.get('/', (req, res)=>{
+    res.send("Hello there, this is for testing purposes")
+})
 
 // Define PORT
-const PORT = process.env.PORT || 5500;
+const PORT = process.env.PORT || 5000;
 
 // Start server after syncing Sequelize models
 sequelize.sync().then(() => {
     app.listen(PORT, () => {
-        console.log(`Server is running on PORT:${PORT}`);
+        console.log(`Server running on http://localhost:${PORT}`);
     });
 }).catch((err) => {
     console.error('Failed to sync database:', err);
