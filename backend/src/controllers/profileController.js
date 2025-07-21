@@ -103,7 +103,7 @@ exports.updateProfile = async (req, res) => {
     if (user.role === 'patient') {
       profile = await Patient.findByPk(userId);
       if (!profile) {
-        return res.status(404).json({ error: 'Patient profile not found' });
+        return res.status(404).json({ error: 'Patient profile not found. Please create a profile first.' });
       }
 
       await profile.update({
@@ -115,7 +115,7 @@ exports.updateProfile = async (req, res) => {
     } else if (user.role === 'doctor') {
       profile = await Doctor.findByPk(userId);
       if (!profile) {
-        return res.status(404).json({ error: 'Doctor profile not found' });
+        return res.status(404).json({ error: 'Doctor profile not found. Please create a profile first.' });
       }
 
       await profile.update({

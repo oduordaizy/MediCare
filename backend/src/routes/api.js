@@ -9,20 +9,20 @@ const adminController = require('../controllers/adminController');
 const profileController = require('../controllers/profileController');
 
 // Patient routes - accessible by patients and doctors
-router.get('/patients', auth(['patient', 'doctor', 'admin']), patientsController.getPatients);
+router.get('/patients', patientsController.getPatients);
 
 // Doctor routes - accessible by doctors and admins
-router.get('/doctors', auth(['doctor', 'admin']), doctorsController.getDoctors);
+router.get('/doctors', doctorsController.getDoctors);
 
 // Appointment routes - accessible by all authenticated users
-router.get('/appointments', auth(['patient', 'doctor', 'admin']), appointmentsController.getAppointments);
+router.get('/appointments', appointmentsController.getAppointments);
 
 // Admin routes - accessible only by admins
-router.get('/admin', auth(['admin']), adminController.getAdmin);
+router.get('/admin', adminController.getAdmin);
 
 // Profile routes - accessible by all authenticated users
-router.get('/profile/:userId', auth(['patient', 'doctor', 'admin']), profileController.getProfile);
-router.post('/profile/:userId', auth(['patient', 'doctor', 'admin']), profileController.createProfile);
-router.put('/profile/:userId', auth(['patient', 'doctor', 'admin']), profileController.updateProfile);
+router.get('/profile/:userId', profileController.getProfile);
+router.post('/profile/:userId', profileController.createProfile);
+router.put('/profile/:userId', profileController.updateProfile);
 
 module.exports = router; 

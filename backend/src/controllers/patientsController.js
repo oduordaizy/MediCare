@@ -9,6 +9,7 @@ exports.getPatients = async (req, res) => {
         });
         res.status(200).json(patients);
     } catch (error) {
+        console.error('Error in getPatients:', error);
         res.status(500).json({ error: error.message });
     }
 }; 

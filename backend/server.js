@@ -17,18 +17,26 @@ const auth = require('./src/middleware/authMiddleware');
 const apiRoutes = require('./src/routes/api');
 const authRoutes = require('./src/routes/authRoutes');
 
-// Middleware
-app.use(express.json());
+// Debug middleware to log all requests
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.path} - Body:`, req.body);
+    next();
+});
 
 // Public routes (no authentication required)
 app.use('/api/auth', authRoutes);
 
 // Protected routes (authentication required)
-app.use('/api/users', auth(), apiRoutes);
+app.use('/api/users', auth(['patient', 'doctor', 'admin']), apiRoutes);
 
 app.get('/', (req, res)=>{
     res.send("Hello there, this is for testing purposes")
 })
+
+// Simple test endpoint without any middleware
+app.get('/test', (req, res) => {
+    res.json({ message: 'Test endpoint works!' });
+});
 
 // Define PORT
 const PORT = process.env.PORT || 5000;
